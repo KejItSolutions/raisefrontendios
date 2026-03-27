@@ -21,8 +21,8 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 // Import shared components
-import DrawerMenu from '../components/DrawerMenu';
-import Header from '../components/Header';
+import DrawerMenu from '../../components/DrawerMenu';
+import Header from '../../components/Header';
 
 const COLORS = {
     primary: '#4259FA',
@@ -36,33 +36,33 @@ const COLORS = {
     enrolled: '#0AC947',
 };
 
-const SOFT_SKILLS_DATA = [
+const DESIGN_DATA = [
     {
         id: '1',
-        title: 'Leadership & Management',
-        desc: 'Develop essential skills for leading teams, conflict resolution, strategic planning, and fostering a productive workplace culture.',
+        title: 'UI/UX Design',
+        desc: 'Teaches user-centric design, wireframing, prototyping, usability principles, and creating intuitive digital interfaces.',
         level: 'Advanced',
         levelColor: COLORS.advanced,
-        duration: 'Duration 6 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 8 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
     {
         id: '2',
-        title: 'Effective Communication',
-        desc: 'Master the art of verbal and non-verbal communication, active listening, and public speaking to convey ideas clearly.',
+        title: 'Graphic Design',
+        desc: 'Focuses on visual communication through color theory, typography, branding, and design tools like Photoshop and Illustrator.',
         level: 'Intermediate',
         levelColor: COLORS.intermediate,
-        duration: 'Duration 4 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 6 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
     {
         id: '3',
-        title: 'Time Management',
-        desc: 'Learn prioritization techniques, goal setting, and efficiency strategies to balance professional and personal responsibilities.',
+        title: 'Animation & Multimedia',
+        desc: 'Covers storytelling, 2D/3D animation, video editing, and motion graphics to create engaging digital media content.',
         level: 'Beginner',
         levelColor: COLORS.beginner,
-        duration: 'Duration 3 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 12 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
 ];
 
@@ -111,7 +111,7 @@ const CourseCard = ({ item, onEnroll }) => {
     );
 };
 
-export default function SoftSkills() {
+export default function DesignCourses() {
     const router = useRouter();
     const [showToast, setShowToast] = useState(false);
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -141,6 +141,7 @@ export default function SoftSkills() {
 
     return (
         <SafeAreaProvider>
+            {/* 1. Hides the "index" title at the top */}
             <Stack.Screen options={{ headerShown: false }} />
             
             <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
@@ -156,7 +157,7 @@ export default function SoftSkills() {
                 <Header openDrawer={openDrawer} />
 
                 <View style={styles.content}>
-                    <Text style={styles.mainTitle}>Soft Skills</Text>
+                    <Text style={styles.mainTitle}>Design Courses</Text>
 
                     <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
                         <ArrowLeft color={COLORS.primary} size={wp('5%')} />
@@ -164,7 +165,7 @@ export default function SoftSkills() {
                     </TouchableOpacity>
 
                     <FlatList
-                        data={SOFT_SKILLS_DATA}
+                        data={DESIGN_DATA}
                         renderItem={({ item }) => <CourseCard item={item} onEnroll={triggerToast} />}
                         keyExtractor={item => item.id}
                         contentContainerStyle={styles.listContent}
@@ -217,10 +218,12 @@ const styles = StyleSheet.create({
         borderRadius: wp('6%'), 
         padding: wp('5%'), 
         marginBottom: hp('2%'),
+        // iOS Shadows
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.05,
         shadowRadius: 8,
+        // Android Elevation
         elevation: 2 
     },
     cardTop: { 

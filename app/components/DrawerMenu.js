@@ -20,11 +20,11 @@ export default function DrawerMenu({ drawerOpen, closeDrawer, drawerAnim }) {
 
   const menuItems = [
     { name: "Dashboard", icon: "grid", route: "/DrawerMenu/Dashboard" },
-    { name: "Academics", icon: "book-open", route: "/Academics" },
-    { name: "Maps", icon: "map-pin", route: "/Maps" },
+    { name: "Academics", icon: "book-open", route: "/DrawerMenu/Academics" },
+    { name: "Maps", icon: "map-pin", route: "/DrawerMenu/Maps" },
     { name: "Careers", icon: "target", route: "/DrawerMenu/Career" },
-    { name: "Events", icon: "award", route: "/Events" },
-    { name: "Sports & Athletics", icon: "activity", route: "/SportsAthletics" },
+    { name: "Events", icon: "award", route: "/DrawerMenu/Events" },
+    { name: "Sports & Athletics", icon: "activity", route: "/DrawerMenu/SportsAthletics" },
     { name: "Feedback", icon: "message-square", route: "/DrawerMenu/Feedback" },
   ];
 
@@ -72,7 +72,7 @@ export default function DrawerMenu({ drawerOpen, closeDrawer, drawerAnim }) {
               <TouchableOpacity
                 style={styles.logoutBtn}
                 activeOpacity={0.8}
-                onPress={() => router.push("/LoginScreen")}
+                onPress={() => router.push("LoginandRegisterScreens/LoginScreen")}
               >
                 <Feather name="log-out" size={wp("4.5%")} color="#fff" />
                 <Text style={styles.logoutText}>Logout</Text>

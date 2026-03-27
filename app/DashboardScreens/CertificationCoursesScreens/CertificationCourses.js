@@ -16,8 +16,8 @@ import {
   widthPercentageToDP as wp
 } from 'react-native-responsive-screen';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import DrawerMenu from "../components/DrawerMenu";
-import Header from "../components/Header";
+import DrawerMenu from "../../components/DrawerMenu";
+import Header from "../../components/Header";
 const COLORS = {
   primary: '#4259FA',
   background: '#F3F6FF',
@@ -27,10 +27,10 @@ const COLORS = {
 };
 
 const DATA = [
-  { id: '1', title: 'Technical Courses', imageIcon: require('../../assets/images/mingcute_code-line.png') },
-  { id: '2', title: 'Design Courses', imageIcon: require('../../assets/images/fluent-color_design-ideas-24.png') },
-  { id: '3', title: 'Finance & Accounting', imageIcon: require('../../assets/images/mdi_finance.png') },
-  { id: '4', title: 'Soft Skills', imageIcon: require('../../assets/images/carbon_ibm-software-watsonx-data-unstructured-enrichment.png') },
+  { id: '1', title: 'Technical Courses', imageIcon: require('../../../assets/images/mingcute_code-line.png') },
+  { id: '2', title: 'Design Courses', imageIcon: require('../../../assets/images/fluent-color_design-ideas-24.png') },
+  { id: '3', title: 'Finance & Accounting', imageIcon: require('../../../assets/images/mdi_finance.png') },
+  { id: '4', title: 'Soft Skills', imageIcon: require('../../../assets/images/carbon_ibm-software-watsonx-data-unstructured-enrichment.png') },
 ];
 
 export default function CertificationScreen() {
@@ -61,10 +61,10 @@ export default function CertificationScreen() {
       activeOpacity={0.7} 
       style={styles.card}
       onPress={() => {
-        if (item.title === 'Technical Courses') router.push('/Certification Courses/TechnicalCourses');
-        else if (item.title === 'Design Courses') router.push('/Certification Courses/DesignCourses'); 
-        else if (item.title === 'Finance & Accounting') router.push('/Certification Courses/FinanceAccounting');
-        else (router.push('/Certification Courses/SoftSkills')); 
+        if (item.title === 'Technical Courses') router.push('/DashboardScreens/CertificationCoursesScreens/TechnicalCourses');
+        else if (item.title === 'Design Courses') router.push('/DashboardScreens/CertificationCoursesScreens/DesignCourses'); 
+        else if (item.title === 'Finance & Accounting') router.push('/DashboardScreens/CertificationCoursesScreens/FinanceAccounting');
+        else (router.push('/DashboardScreens/CertificationCoursesScreens/SoftSkills')); 
       }}
     >
       <View style={styles.iconWrapper}>

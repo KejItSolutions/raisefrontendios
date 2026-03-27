@@ -58,7 +58,7 @@ export default function LoginScreen() {
       setMessageColor("green");
       setInfoMessage("Success! Logging you in...");
       setTimeout(() => {
-        router.push("/StudentProfile");
+        router.push("/HeaderScreens/StudentProfile");
       }, 500);
     } else if (mobile === "" || enteredOtp.length < 4) {
       setMessageColor("red");
@@ -169,7 +169,7 @@ export default function LoginScreen() {
               New Student?{" "}
               <Text
                 style={styles.create}
-                onPress={() => router.push("/RegisterScreen")}
+                onPress={() => router.push("/LoginandRegisterScreens/RegisterScreen")}
               >
                 Create Account
               </Text>

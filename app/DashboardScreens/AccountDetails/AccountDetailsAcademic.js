@@ -6,8 +6,8 @@ import { useRef, useState } from "react";
 import { Animated, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Platform } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import Header from "../components/Header";
-import DrawerMenu from "../components/DrawerMenu";
+import Header from "../../components/Header";
+import DrawerMenu from "../../components/DrawerMenu";
 
 export default function AccountDetailsScreen() {
 
@@ -138,28 +138,28 @@ export default function AccountDetailsScreen() {
                                     <Text style={styles.student}>Student ID: R2012567</Text>
 
                                     <Image
-                                        source={require("../../assets/images/NFC_icon.png")}
+                                        source={require("../../../assets/images/NFC_icon.png")}
                                         style={styles.nfc}
                                     />
                                 </View>
 
                                 <View style={styles.chipContainer}>
                                     <Image
-                                        source={require("../../assets/images/card_chip_icon.png")}
+                                        source={require("../../../assets/images/card_chip_icon.png")}
                                         style={styles.chip}
                                     />
 
                                     <View style={styles.eyeRow}>
                                         <Feather name="eye" size={16} color="#fff" />
                                         <Image
-                                            source={require("../../assets/images/balance_on_card_hidden.png")}
+                                            source={require("../../../assets/images/balance_on_card_hidden.png")}
                                             style={styles.maskImage}
                                         />
                                     </View>
                                 </View>
 
                                 <Image
-                                    source={require("../../assets/images/Visa_logo.png")}
+                                    source={require("../../../assets/images/Visa_logo.png")}
                                     style={styles.visa}
                                 />
 
@@ -209,7 +209,7 @@ export default function AccountDetailsScreen() {
                                     {/* LEFT ICON */}
                                     <View style={styles.iconBox}>
                                         <Image
-                                            source={require("../../assets/images/transaction_types_icons.png")}
+                                            source={require("../../../assets/images/transaction_types_icons.png")}
                                             style={{ width: 22, height: 40 }}
                                         />
                                     </View>
@@ -283,7 +283,7 @@ export default function AccountDetailsScreen() {
                                     {/* LEFT ICON */}
                                     <View style={styles.iconBox}>
                                         <Image
-                                            source={require("../../assets/images/transaction_types_icons.png")}
+                                            source={require("../../../assets/images/transaction_types_icons.png")}
                                             style={{ width: 22, height: 40 }}
                                         />
                                     </View>

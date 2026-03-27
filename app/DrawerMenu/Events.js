@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import CreateClubForm from "./CreateClub";
+import CreateClubForm from "../CreateClub";
 
 // Import your shared components
 import DrawerMenu from "../components/DrawerMenu";

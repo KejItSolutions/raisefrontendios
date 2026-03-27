@@ -151,7 +151,7 @@ export default function ScholarshipScreen() {
  
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => router.push("/Dashboard")}
+          onPress={() => router.back()}
         >
           <ArrowLeft color={COLORS.primary} size={wp("5%")} />
           <Text style={styles.backText}>Back to Dashboard</Text>
