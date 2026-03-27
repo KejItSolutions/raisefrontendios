@@ -2,12 +2,12 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useRouter } from "expo-router";
 import { useRef, useState } from "react";
 import {
-    Animated,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    View
+  Animated,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View
 } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
