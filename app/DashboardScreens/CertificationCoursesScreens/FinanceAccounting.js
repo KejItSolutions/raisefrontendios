@@ -21,8 +21,8 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 // Import shared components
-import DrawerMenu from '../components/DrawerMenu';
-import Header from '../components/Header';
+import DrawerMenu from '../../components/DrawerMenu';
+import Header from '../../components/Header';
 
 const COLORS = {
     primary: '#4259FA',
@@ -36,33 +36,33 @@ const COLORS = {
     enrolled: '#0AC947',
 };
 
-const DESIGN_DATA = [
+const FINANCE_DATA = [
     {
         id: '1',
-        title: 'UI/UX Design',
-        desc: 'Teaches user-centric design, wireframing, prototyping, usability principles, and creating intuitive digital interfaces.',
+        title: 'Financial Management',
+        desc: 'Focuses on capital budgeting, risk management, financial analysis, and strategic decision-making for corporate growth.',
         level: 'Advanced',
         levelColor: COLORS.advanced,
-        duration: 'Duration 8 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 10 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
     {
         id: '2',
-        title: 'Graphic Design',
-        desc: 'Focuses on visual communication through color theory, typography, branding, and design tools like Photoshop and Illustrator.',
+        title: 'Principles of Accounting',
+        desc: 'Covers the double-entry system, financial statements, ledger maintenance, and basic auditing standards.',
         level: 'Intermediate',
         levelColor: COLORS.intermediate,
         duration: 'Duration 6 weeks',
-        icon: require('../../assets/images/active.png'),
+        icon: require('../../../assets/images/active.png'),
     },
     {
         id: '3',
-        title: 'Animation & Multimedia',
-        desc: 'Covers storytelling, 2D/3D animation, video editing, and motion graphics to create engaging digital media content.',
+        title: 'Investment Banking',
+        desc: 'Introduces asset valuation, mergers and acquisitions, and the mechanics of global financial markets.',
         level: 'Beginner',
         levelColor: COLORS.beginner,
-        duration: 'Duration 12 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 8 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
 ];
 
@@ -111,7 +111,7 @@ const CourseCard = ({ item, onEnroll }) => {
     );
 };
 
-export default function DesignCourses() {
+export default function FinanceAccounting() {
     const router = useRouter();
     const [showToast, setShowToast] = useState(false);
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -141,7 +141,6 @@ export default function DesignCourses() {
 
     return (
         <SafeAreaProvider>
-            {/* 1. Hides the "index" title at the top */}
             <Stack.Screen options={{ headerShown: false }} />
             
             <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
@@ -157,15 +156,15 @@ export default function DesignCourses() {
                 <Header openDrawer={openDrawer} />
 
                 <View style={styles.content}>
-                    <Text style={styles.mainTitle}>Design Courses</Text>
+                    <Text style={styles.mainTitle}>Finance & Accounting</Text>
 
-                    <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
-                        <ArrowLeft color={COLORS.primary} size={wp('5%')} />
-                        <Text style={styles.backBtnText}>Back to Certifications</Text>
-                    </TouchableOpacity>
+                              <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
+                                <ArrowLeft color={COLORS.primary} size={wp('5%')} />
+                                <Text style={styles.backBtnText}>Back to Certifications</Text>
+                              </TouchableOpacity>
 
                     <FlatList
-                        data={DESIGN_DATA}
+                        data={FINANCE_DATA}
                         renderItem={({ item }) => <CourseCard item={item} onEnroll={triggerToast} />}
                         keyExtractor={item => item.id}
                         contentContainerStyle={styles.listContent}
@@ -218,12 +217,10 @@ const styles = StyleSheet.create({
         borderRadius: wp('6%'), 
         padding: wp('5%'), 
         marginBottom: hp('2%'),
-        // iOS Shadows
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.05,
         shadowRadius: 8,
-        // Android Elevation
         elevation: 2 
     },
     cardTop: { 

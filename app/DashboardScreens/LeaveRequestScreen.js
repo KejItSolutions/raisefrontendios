@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-
+import { router, useRouter } from "expo-router";
 import * as DocumentPicker from "expo-document-picker";
 import { Calendar } from "react-native-calendars";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
@@ -17,7 +17,7 @@ import Icon from "react-native-vector-icons/Feather";
 
 
 export default function LeaveRequestScreen() {
-
+ const router= useRouter();
   const [leaveType, setLeaveType] = useState("Sick Leave");
   const [modalVisible, setModalVisible] = useState(false);
   const [reason, setReason] = useState("");
@@ -102,7 +102,7 @@ export default function LeaveRequestScreen() {
       {/* TITLE */}
       <Text style={styles.title}>Leave Request</Text>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>router.back()}>
         <Text style={styles.back}>← Back to Dashboard</Text>
       </TouchableOpacity>
 

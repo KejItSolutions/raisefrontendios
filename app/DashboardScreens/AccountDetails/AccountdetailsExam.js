@@ -7,8 +7,8 @@ import { Animated, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import Header from "../components/Header";
-import DrawerMenu from "../components/DrawerMenu";
+import Header from "../../components/Header";
+import DrawerMenu from "../../components/DrawerMenu";
 
 export default function AccountDetailsScreen() {
 
@@ -135,7 +135,7 @@ export default function AccountDetailsScreen() {
                         {/* SUCCESS ICON */}
                         <View style={styles.successIconContainer}>
                             <Image
-                                source={require("../../assets/images/SuccessIcon.png")}
+                                source={require("../../../assets/images/SuccessIcon.png")}
                                 style={styles.successIcon}
                                 resizeMode="contain"
                             />

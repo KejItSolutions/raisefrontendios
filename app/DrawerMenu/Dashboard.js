@@ -65,7 +65,7 @@ export default function Dashboard() {
           <View style={styles.leftColumn}>
             <TouchableOpacity
               style={styles.smallCard}
-              onPress={() => router.push("/ScholarshipDetails")}
+              onPress={() => router.push("/DashboardScreens/ScholarshipDetails")}
             >
               <Image
                 source={require("../../assets/images/scholarship.png")}
@@ -91,7 +91,7 @@ export default function Dashboard() {
           {/* RIGHT */}
           <TouchableOpacity
             style={styles.largeCard}
-            onPress={() => router.push("/CertificationCourses")}
+            onPress={() => router.push("/DashboardScreens/CertificationCoursesScreens/CertificationCourses")}
           >
             <Text style={styles.cardText}>Certificates</Text>
             <Text style={styles.cardSubText}>Courses</Text>
@@ -106,7 +106,7 @@ export default function Dashboard() {
         {/* LEAVE */}
         <TouchableOpacity
           style={styles.leaveCard}
-          onPress={() => router.push("/LeaveRequestScreen")}
+          onPress={() => router.push("/DashboardScreens/LeaveRequestScreen")}
         >
           <Image
             source={require("../../assets/images/Leavechat.png")}
@@ -140,7 +140,7 @@ export default function Dashboard() {
         {/* ACCOUNT */}
         <TouchableOpacity
           style={styles.accountCard}
-          onPress={() => router.push("./AccountDetails/AccountDetailsAcademic")}
+          onPress={() => router.push("/DashboardScreens/AccountDetails/AccountDetailsAcademic")}
         >
           <Ionicons name="person-outline" size={wp("5%")} color="red" />
           <Text style={styles.accountText}>Account Details</Text>

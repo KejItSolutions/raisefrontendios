@@ -21,8 +21,8 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 // Import your shared Header and Drawer if you want the burger menu to work here too
-import DrawerMenu from '../components/DrawerMenu';
-import Header from '../components/Header';
+import DrawerMenu from '../../components/DrawerMenu';
+import Header from '../../components/Header';
 
 const COLORS = {
   primary: '#4259FA',
@@ -44,7 +44,7 @@ const COURSE_DATA = [
     level: 'Advanced',
     levelColor: COLORS.advanced,
     duration: 'Duration 4 weeks',
-    icon: require('../../assets/images/active.png'),
+    icon: require('../../../assets/images/active.png'),
   },
   {
     id: '2',
@@ -53,7 +53,7 @@ const COURSE_DATA = [
     level: 'Intermediate',
     levelColor: COLORS.intermediate,
     duration: 'Duration 3 weeks',
-    icon: require('../../assets/images/active.png'),
+    icon: require('../../../assets/images/active.png'),
   },
   {
     id: '3',
@@ -62,7 +62,7 @@ const COURSE_DATA = [
     level: 'Beginner',
     levelColor: COLORS.beginner,
     duration: 'Duration 5 weeks',
-    icon: require('../../assets/images/active.png'),
+    icon: require('../../../assets/images/active.png'),
   },
 ];
 

@@ -27,7 +27,7 @@ const Header = ({ openDrawer }) => {
       </TouchableOpacity>
 
       <View style={styles.headerRight}>
-        <TouchableOpacity onPress={() => router.push("/Notifications")}>
+        <TouchableOpacity onPress={() => router.push("/HeaderScreens/Notifications")}>
           <Ionicons
             name="notifications-outline"
             size={24}
@@ -35,11 +35,13 @@ const Header = ({ openDrawer }) => {
             style={styles.headerIcon}
           />
         </TouchableOpacity>
-
-        <Image
+      <TouchableOpacity onPress={()=>router.push("/HeaderScreens/StudentProfile")}>
+          <Image
           source={{ uri: "https://i.pravatar.cc/100" }}
           style={styles.avatar}
         />
+      </TouchableOpacity>
+        
 
         <Ionicons name="ellipsis-vertical" size={24} color="#333" />
       </View>

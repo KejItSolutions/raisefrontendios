@@ -21,8 +21,8 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 // Import shared components
-import DrawerMenu from '../components/DrawerMenu';
-import Header from '../components/Header';
+import DrawerMenu from '../../components/DrawerMenu';
+import Header from '../../components/Header';
 
 const COLORS = {
     primary: '#4259FA',
@@ -36,33 +36,33 @@ const COLORS = {
     enrolled: '#0AC947',
 };
 
-const FINANCE_DATA = [
+const SOFT_SKILLS_DATA = [
     {
         id: '1',
-        title: 'Financial Management',
-        desc: 'Focuses on capital budgeting, risk management, financial analysis, and strategic decision-making for corporate growth.',
+        title: 'Leadership & Management',
+        desc: 'Develop essential skills for leading teams, conflict resolution, strategic planning, and fostering a productive workplace culture.',
         level: 'Advanced',
         levelColor: COLORS.advanced,
-        duration: 'Duration 10 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 6 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
     {
         id: '2',
-        title: 'Principles of Accounting',
-        desc: 'Covers the double-entry system, financial statements, ledger maintenance, and basic auditing standards.',
+        title: 'Effective Communication',
+        desc: 'Master the art of verbal and non-verbal communication, active listening, and public speaking to convey ideas clearly.',
         level: 'Intermediate',
         levelColor: COLORS.intermediate,
-        duration: 'Duration 6 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 4 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
     {
         id: '3',
-        title: 'Investment Banking',
-        desc: 'Introduces asset valuation, mergers and acquisitions, and the mechanics of global financial markets.',
+        title: 'Time Management',
+        desc: 'Learn prioritization techniques, goal setting, and efficiency strategies to balance professional and personal responsibilities.',
         level: 'Beginner',
         levelColor: COLORS.beginner,
-        duration: 'Duration 8 weeks',
-        icon: require('../../assets/images/active.png'),
+        duration: 'Duration 3 weeks',
+        icon: require('../../../assets/images/active.png'),
     },
 ];
 
@@ -111,7 +111,7 @@ const CourseCard = ({ item, onEnroll }) => {
     );
 };
 
-export default function FinanceAccounting() {
+export default function SoftSkills() {
     const router = useRouter();
     const [showToast, setShowToast] = useState(false);
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -156,15 +156,15 @@ export default function FinanceAccounting() {
                 <Header openDrawer={openDrawer} />
 
                 <View style={styles.content}>
-                    <Text style={styles.mainTitle}>Finance & Accounting</Text>
+                    <Text style={styles.mainTitle}>Soft Skills</Text>
 
-                              <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
-                                <ArrowLeft color={COLORS.primary} size={wp('5%')} />
-                                <Text style={styles.backBtnText}>Back to Certifications</Text>
-                              </TouchableOpacity>
+                    <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
+                        <ArrowLeft color={COLORS.primary} size={wp('5%')} />
+                        <Text style={styles.backBtnText}>Back to Certifications</Text>
+                    </TouchableOpacity>
 
                     <FlatList
-                        data={FINANCE_DATA}
+                        data={SOFT_SKILLS_DATA}
                         renderItem={({ item }) => <CourseCard item={item} onEnroll={triggerToast} />}
                         keyExtractor={item => item.id}
                         contentContainerStyle={styles.listContent}

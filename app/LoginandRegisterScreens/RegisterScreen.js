@@ -82,7 +82,7 @@ export default function RegistrationScreen() {
       setMessageColor("green");
       setInfoMessage("Registration Successful!");
       setTimeout(() => {
-        router.push("/Document");
+        router.push("/DashboardScreens/DocumentsScreens/Document");
       }, 800);
     } else {
       setMessageColor("red");
