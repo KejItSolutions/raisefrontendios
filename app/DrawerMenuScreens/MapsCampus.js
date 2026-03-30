@@ -126,7 +126,7 @@ export default function App() {
 
       <Text style={styles.title}>Map</Text>
 
-      <TouchableOpacity style={styles.backRow}>
+      <TouchableOpacity style={styles.backRow} onPress={()=>router.back()}>
         <Ionicons name="arrow-back" size={scale(16)} color="#4F6EF7" />
         <Text style={styles.back}>Back</Text>
       </TouchableOpacity>
@@ -135,7 +135,7 @@ export default function App() {
       <View style={styles.tabs}>
         <TouchableOpacity
           style={activeTab === "navigation" ? styles.activeTab : styles.inactiveTab}
-          onPress={() => setActiveTab("navigation")}
+          onPress={() => setActiveTab("/DrawerMenu/MApsCampus")}
         >
           <Text style={styles.tabText(activeTab === "navigation")}>
             Campus Navigation
@@ -144,7 +144,7 @@ export default function App() {
 
         <TouchableOpacity
           style={activeTab === "tracking" ? styles.activeTab : styles.inactiveTab}
-          onPress={() => setActiveTab("tracking")}
+          onPress={() => router.push("/DrawerMenuScreens/MapStudentTracking")}
         >
           <Text style={styles.tabText(activeTab === "tracking")}>
             Student tracking
