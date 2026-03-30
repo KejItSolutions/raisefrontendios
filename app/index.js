@@ -1,10 +1,10 @@
 import { View } from "react-native";
-import StudentProfile from "./StudentProfile/StudentProfile";
+import EventAndFeedback from "./Events/EventsAndClubs";
 
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
-      <StudentProfile />
+      <EventAndFeedback />
     </View>
   );
 }
