@@ -1,32 +1,44 @@
 import { Feather } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+import { useRouter, usePathname } from "expo-router";
+import { useState, useEffect } from "react";
 import {
-    Animated,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
-    View,
+  Animated,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import {
-    heightPercentageToDP as hp,
-    widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function DrawerMenu({ drawerOpen, closeDrawer, drawerAnim }) {
   const router = useRouter();
+  const pathname = usePathname();
+
+  const [activeItem, setActiveItem] = useState("");
 
   const menuItems = [
-    { name: "Dashboard", icon: "grid", route: "/DrawerMenu/Dashboard" },
-    { name: "Academics", icon: "book-open", route: "/DrawerMenu/Academics" },
-    { name: "Maps", icon: "map-pin", route: "/DrawerMenu/Maps" },
-    { name: "Careers", icon: "target", route: "/DrawerMenu/Career" },
-    { name: "Events", icon: "award", route: "/DrawerMenu/Events" },
-    { name: "Sports & Athletics", icon: "activity", route: "/DrawerMenu/SportsAthletics" },
-    { name: "Feedback", icon: "message-square", route: "/DrawerMenu/Feedback" },
+    { name: "Dashboard", icon: "grid", route: "/DrawerMenuScreens/Dashboard" },
+    { name: "Academics", icon: "book-open", route: "/DrawerMenuScreens/Academics" },
+    { name: "Maps", icon: "map-pin", route: "/DrawerMenuScreens/MapStudentTracking" },
+    { name: "Careers", icon: "target", route: "/DrawerMenuScreens/Career" },
+    { name: "Events", icon: "award", route: "/DrawerMenuScreens/Events" },
+    { name: "Sports & Athletics", icon: "activity", route: "/DrawerMenuScreens/SportsAthletics" },
+    { name: "Feedback", icon: "message-square", route: "/DrawerMenuScreens/Feedback" },
   ];
+
+  // Sync active item with current route
+  useEffect(() => {
+    const current = menuItems.find((item) => item.route === pathname);
+    if (current) {
+      setActiveItem(current.name);
+    }
+  }, [pathname]);
 
   if (!drawerOpen) return null;
 
@@ -39,9 +51,9 @@ export default function DrawerMenu({ drawerOpen, closeDrawer, drawerAnim }) {
         style={[styles.drawer, { transform: [{ translateX: drawerAnim }] }]}
       >
         <SafeAreaView style={{ flex: 1 }}>
-          {/* Prevent closing when clicking inside */}
           <TouchableWithoutFeedback>
             <View style={{ flex: 1 }}>
+              
               {/* HEADER */}
               <View style={styles.drawerHeader}>
                 <Image
@@ -53,26 +65,48 @@ export default function DrawerMenu({ drawerOpen, closeDrawer, drawerAnim }) {
               </View>
 
               {/* MENU */}
-              {menuItems.map((item, index) => (
-                <TouchableOpacity
-                  key={index}
-                  style={styles.menuItem}
-                  activeOpacity={0.7}
-                  onPress={() => {
-                    router.replace(item.route);
-                    closeDrawer();
-                  }}
-                >
-                  <Feather name={item.icon} size={wp("5%")} color="#7B8190" />
-                  <Text style={styles.menuText}>{item.name}</Text>
-                </TouchableOpacity>
-              ))}
+              {menuItems.map((item, index) => {
+                const isActive = activeItem === item.name;
+
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    style={[
+                      styles.menuItem,
+                      isActive && styles.activeMenuItem
+                    ]}
+                    activeOpacity={0.7}
+                    onPress={() => {
+                      setActiveItem(item.name);
+                      router.replace(item.route);
+                      closeDrawer();
+                    }}
+                  >
+                    <Feather
+                      name={item.icon}
+                      size={wp("5%")}
+                      color={isActive ? "#fff" : "#7B8190"}
+                    />
+
+                    <Text
+                      style={[
+                        styles.menuText,
+                        isActive && styles.activeMenuText
+                      ]}
+                    >
+                      {item.name}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
 
               {/* LOGOUT */}
               <TouchableOpacity
                 style={styles.logoutBtn}
                 activeOpacity={0.8}
-                onPress={() => router.push("LoginandRegisterScreens/LoginScreen")}
+                onPress={() =>
+                  router.push("LoginandRegisterScreens/LoginScreen")
+                }
               >
                 <Feather name="log-out" size={wp("4.5%")} color="#fff" />
                 <Text style={styles.logoutText}>Logout</Text>
@@ -100,7 +134,7 @@ const styles = StyleSheet.create({
   },
 
   drawer: {
-    width: wp("75%"), // better for iOS screens
+    width: wp("60%"),
     height: "100%",
     backgroundColor: "#fff",
     paddingHorizontal: wp("5%"),
@@ -108,13 +142,10 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
 
-    // iOS shadow
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: 6,
     shadowOffset: { width: 2, height: 0 },
-
-    // Android
     elevation: 10,
   },
 
@@ -140,12 +171,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: hp("1.8%"),
+    paddingHorizontal: wp("2%"),
+    borderRadius: 10,
+  },
+
+  activeMenuItem: {
+    backgroundColor: "#4A63F3",
   },
 
   menuText: {
     marginLeft: wp("4%"),
     fontSize: wp("4%"),
     color: "#6F7685",
+  },
+
+  activeMenuText: {
+    color: "#fff",
+    fontWeight: "600",
   },
 
   logoutBtn: {

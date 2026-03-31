@@ -107,7 +107,7 @@ export default function Maps() {
                                     styles.inactiveBtn,
                                     activeTab === "navigation" && styles.activeBtn
                                 ]}
-                                onPress={() => setActiveTab("navigation")}
+                                onPress={() => router.push("/DrawerMenuScreens/MapsCampus")}
                             >
                                 <Text
                                     style={

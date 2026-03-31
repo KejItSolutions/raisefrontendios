@@ -42,8 +42,10 @@ const Header = ({ openDrawer }) => {
         />
       </TouchableOpacity>
         
-
-        <Ionicons name="ellipsis-vertical" size={24} color="#333" />
+        <TouchableOpacity onPress={()=>router.push("/Settings/SettingsRoutes")}>
+          <Ionicons name="ellipsis-vertical" size={24} color="#333" />
+        </TouchableOpacity>
+        
       </View>
     </View>
   );
